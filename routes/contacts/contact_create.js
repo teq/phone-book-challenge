@@ -1,6 +1,7 @@
+const response = require('../../util/response');
 
 module.exports = async (ctx) => {
 
-    ctx.body = { status: 'ok' };
+    ctx.body = response.ok();
 
 };

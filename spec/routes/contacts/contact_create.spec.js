@@ -21,8 +21,7 @@ describe('contact creation', () => {
             const res = await request().post('/contacts');
             expect(res).to.have.status(200);
             expect(res.body).to.deep.include({
-                status: 'ok',
-                contact: {}
+                status: 'ok'
             })
 
         });
