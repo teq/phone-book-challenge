@@ -1,11 +1,10 @@
 const KoaRouter = require('koa-router');
 
+const contacts = require('./contacts');
+
 const router = new KoaRouter();
 
-router.get('/', async (ctx) => {
-
-    ctx.body = { status: 'ok' };
-
-});
+// Register routes
+contacts(router);
 
 module.exports = router.routes();

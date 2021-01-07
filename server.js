@@ -1,20 +1,14 @@
-const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
-
 const logger = require('./util/logger.js');
-const routes = require('./routes');
-
-const server = new Koa()
-    .use(bodyParser({ enableTypes: ['json'] }))
-    .use(routes);
+const config = require('./config');
+const apiServer = require('./api');
 
 (async() => {
 
     try {
 
-        const instance = server.listen(3000);
+        const instance = apiServer.listen(config.port);
 
-        logger.info('Service started. Listening for incoming HTTP requests.');
+        logger.info(`Service started. Listening for incoming HTTP requests on port ${config.port}.`);
 
         // Wait for SIGTERM/SIGINT
         await new Promise(resolve => process.on('SIGTERM', resolve).on('SIGINT', resolve));
