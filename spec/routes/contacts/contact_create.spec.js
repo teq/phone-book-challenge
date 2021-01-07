@@ -1,16 +1,26 @@
 const chai = require('chai');
 
-const apiServer = require('../../../api');
+const { request, authorize } = require('../helpers');
 
 const { expect } = chai;
 
-const request = () => chai.request(apiServer.callback());
-
 describe('contact creation', () => {
+
+    const contactFields = {
+        name: 'John Doe',
+        email: 'john.doe@example.com',
+        address: '---'
+    };
 
     context('when unauthenticated', () => {
 
-        it('should return an error');
+        it('should return an error', async () => {
+            const res = await request()
+                .post('/contacts')
+                .send(contactFields);
+            expect(res).to.have.status(401);
+            expect(res.body).to.deep.include({ status: 'error' });
+        });
 
     });
 
@@ -18,13 +28,11 @@ describe('contact creation', () => {
 
         it('should create a new contact', async () => {
 
-            const contactFields = {
-                name: 'John Doe',
-                email: 'john.doe@example.com',
-                address: '---'
-            };
-
-            const res = await request().post('/contacts').send(contactFields);
+            const jwt = await authorize();
+            const res = await request()
+                .post('/contacts')
+                .set('Authorization', `Bearer ${jwt}`)
+                .send(contactFields);
             expect(res).to.have.status(200);
             expect(res.body).to.deep.include({ status: 'ok' });
             const { contact } = res.body;

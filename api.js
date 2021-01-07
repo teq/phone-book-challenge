@@ -5,6 +5,7 @@ const { Model } = require('objection');
 
 const routes = require('./routes');
 const knexConfig = require('./knexfile')
+const { errorHandler } = require('./util/errors');
 
 // Initialize knex
 const knex = Knex(knexConfig);
@@ -12,7 +13,9 @@ const knex = Knex(knexConfig);
 // Bind all Models to a knex instance
 Model.knex(knex);
 
+// Create API server
 const server = new Koa()
+    .use(errorHandler)
     .use(bodyParser({ enableTypes: ['json'] }))
     .use(routes);
 
