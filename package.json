@@ -4,7 +4,9 @@
   "description": "API development coding challenge",
   "main": "server.js",
   "scripts": {
-    "test": "node spec/run.js"
+    "test": "node spec/run.js",
+    "db_migrate": "knex migrate:latest",
+    "db_rollback": "knex migrate:rollback"
   },
   "repository": "github:teq/phone-book-challenge",
   "author": "Andrey Tselishchev",
