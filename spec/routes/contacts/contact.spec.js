@@ -5,7 +5,7 @@ const { request, authorize } = require('../helpers');
 
 const { expect } = chai;
 
-describe('contact creation', () => {
+describe('contact create', () => {
 
     const contactFields = {
         name: faker.name.findName(),
@@ -45,3 +45,11 @@ describe('contact creation', () => {
     });
 
 });
+
+describe('contact delete', () => {});
+
+describe('contact fetch', () => {});
+
+describe('contact list', () => {});
+
+describe('contact update', () => {});
