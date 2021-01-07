@@ -1,9 +1,9 @@
 module.exports = {
 
-    port: 3000,
+    port: 80,
 
     db: {
-        database: 'phone_book_dev',
+        database: 'phone_book_prod',
         user:     'postgres',
         password: '1234'
     }
