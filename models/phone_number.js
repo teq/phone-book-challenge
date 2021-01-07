@@ -1,4 +1,4 @@
-import { Model } from 'objection';
+const { Model } = require('objection');
 
 const Contact = require('./contact');
 

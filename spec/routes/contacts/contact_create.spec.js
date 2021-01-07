@@ -18,11 +18,18 @@ describe('contact creation', () => {
 
         it('should create a new contact', async () => {
 
-            const res = await request().post('/contacts');
+            const contactFields = {
+                name: 'John Doe',
+                email: 'john.doe@example.com',
+                address: '---'
+            };
+
+            const res = await request().post('/contacts').send(contactFields);
             expect(res).to.have.status(200);
-            expect(res.body).to.deep.include({
-                status: 'ok'
-            })
+            expect(res.body).to.deep.include({ status: 'ok' });
+            const { contact } = res.body;
+            expect(contact).to.deep.include(contactFields);
+            expect(contact.id).to.be.greaterThan(0);
 
         });
 
