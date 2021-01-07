@@ -1,9 +1,9 @@
 module.exports = {
 
-    port: 3000,
+    port: 3001,
 
     db: {
-        database: 'phone_book_dev',
+        database: 'phone_book_test',
         user:     'teq',
         password: '1234'
     }

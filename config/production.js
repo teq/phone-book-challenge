@@ -4,8 +4,8 @@ module.exports = {
 
     db: {
         database: 'phone_book_prod',
-        user:     'postgres',
-        password: '1234'
+        user:     'teq',
+        password: 'fd479c7dd9af'
     }
 
 };
