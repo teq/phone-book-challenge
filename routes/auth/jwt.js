@@ -1,4 +1,4 @@
-const { createJwt } = require('../../jwt');
+const { createJwt } = require('../../util/jwt');
 const response = require('../../util/response');
 
 module.exports = async (ctx) => {

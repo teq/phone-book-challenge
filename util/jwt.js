@@ -1,8 +1,8 @@
 const { sign, verify } = require ('jsonwebtoken');
 const { DateTime } = require("luxon");
 
-const config = require('./config');
-const { AuthenticationError } = require('./util/errors');
+const config = require('../config');
+const { AuthenticationError } = require('./errors');
 
 /** Create new JWT (not associated wit any user to keep things simple) */
 async function createJwt() {

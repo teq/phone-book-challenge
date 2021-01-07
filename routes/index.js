@@ -2,7 +2,7 @@ const KoaRouter = require('koa-router');
 
 const auth = require('./auth');
 const contacts = require('./contacts');
-const { parseJwt } = require('../jwt');
+const { parseJwt } = require('../util/jwt');
 
 const router = new KoaRouter();
 
