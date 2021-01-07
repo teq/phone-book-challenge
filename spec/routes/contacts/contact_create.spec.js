@@ -1,4 +1,5 @@
 const chai = require('chai');
+const faker = require('faker');
 
 const { request, authorize } = require('../helpers');
 
@@ -7,9 +8,9 @@ const { expect } = chai;
 describe('contact creation', () => {
 
     const contactFields = {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        address: '---'
+        name: faker.name.findName(),
+        email: faker.internet.email(),
+        address: faker.address.streetAddress()
     };
 
     context('when unauthenticated', () => {
