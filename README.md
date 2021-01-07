@@ -37,7 +37,7 @@ Optionally you can specify an environment:
 
 Run `npm test`
 
-# Run API sever and specs
+# Run API server
 
 > Note: Make sure you created a production database.
 
